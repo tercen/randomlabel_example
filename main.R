@@ -1,19 +1,13 @@
 library(tercen)
 library(dplyr)
 
-options("tercen.workflowId" = "7eee20aa9d6cc4eb9d7f2cc2430313b6")
-options("tercen.stepId"     = "72ba5705-6531-40d5-9d35-399fff4e917d")
-
-getOption("tercen.workflowId")
-getOption("tercen.stepId")
-
 ctx = tercenCtx()
 
 do.unifsampling <- FALSE
 do.downsampling <- TRUE
 
 if(ctx$op.value('method') == "uniform") do.unifsampling <- TRUE
-if(ctx$op.value('method') == "downsampling") do.downsampling <- TRUE
+if(ctx$op.value('method') == "downsampling") do.unifsampling <- TRUE
 
 if(!ctx$op.value('seed') == "NULL") set.seed(as.integer(ctx$op.value('seed')))
 
