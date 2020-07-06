@@ -12,9 +12,10 @@ ctx = tercenCtx()
 do.unifsampling <- FALSE
 do.downsampling <- TRUE
 
-# if()
-# if()
-# set.seed(42)
+# if(ctx$op.value('method') == "uniform") do.unifsampling <- TRUE
+# if(ctx$op.value('method') == "downsampling") do.downsampling <- TRUE
+# 
+# if(!ctx$op.value('seed') == "NULL") set.seed(as.integer(ctx$op.value('seed')))
 
 if(do.unifsampling) {
   
@@ -28,18 +29,18 @@ if(do.unifsampling) {
 
 } else if(do.downsampling) {
   
-  downSample <- function (.ci, y) {
+  downSample <- function (.ci, group) {
     
-    df <- data.frame(.ci, y = as.factor(y))
+    df <- data.frame(.ci, group = as.factor(group))
     
-    minClass <- min(table(y))
+    minClass <- min(table(group))
     df$label <- 0
     
-    df <- ddply(df, .(y), function(dat, n) {
-      dat[sample(seq(along = dat$y),  n), "label"] <- 1
+    df <- ddply(df, .(group), function(dat, n) {
+      dat[sample(seq(along = dat$group),  n), "label"] <- 1
       return(dat)
     }, n = minClass)
-    df$label <- as.factor(df$label)
+    df$label <- ifelse(df$label == 1, "pass", "fail")
     
     return(df)
   }
@@ -47,10 +48,10 @@ if(do.unifsampling) {
   library(plyr)
   
   .ci <- c(ctx$select(".ci")[[1]])
-  y <- c(as.factor(ctx$select(".colorLevels")[[1]]))
-  y <- y[!duplicated(.ci)]
+  group <- c(as.factor(ctx$select(".colorLevels")[[1]]))
+  group <- group[!duplicated(.ci)]
   .ci <- .ci[!duplicated(.ci)]
-  df <- downSample(.ci, y)
+  df <- downSample(.ci, group)
   df %>%
     ctx$addNamespace() %>%
     ctx$save()
