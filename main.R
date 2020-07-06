@@ -7,7 +7,7 @@ do.unifsampling <- FALSE
 do.downsampling <- TRUE
 
 if(ctx$op.value('method') == "uniform") do.unifsampling <- TRUE
-if(ctx$op.value('method') == "downsampling") do.unifsampling <- TRUE
+if(ctx$op.value('method') == "downsampling") do.downsampling <- TRUE
 
 if(!ctx$op.value('seed') == "NULL") set.seed(as.integer(ctx$op.value('seed')))
 
