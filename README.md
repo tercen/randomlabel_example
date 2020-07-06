@@ -1,34 +1,26 @@
-# Introduction
+# Median operator
 
-This is a template repository.
+##### Description
 
-Use this template repository during the first step of developing a tercen operator (in R) on github.
+The `Random label` operator returns a random label per column. It allows one to subsample or downsample the data.
 
-An overview of steps for developing an operator are:
+##### Usage
 
-1. create a github repo
-2. install tercen_studio
-3. login to tercen_studio
-4. git clone the newly created repo
-5. start developing in R in tercen_studio
-6. add R packages to the repo
-7. push to the github repo
-8. go to tercen and install the operator
+Input projection|.
+---|---
+`col`        | numeric, input data, per cell 
 
-For step 1, when creating the repo on github, you will notice the option to use a template repository, choose the `templateR_operator` repository and select it as the template repository.
+Output relations|.
+---|---
+`label`        | numeric, median of the input data
 
-After creation, you now have a new repository with all the convenient files for making a new operator (in R) for tercen.
+##### Details
 
-Use `tercen_studio` to clone the new repository and start programming in `tercen_studio`
+The operator takes all the values of a cell and returns the value which is the median.The computation is done per cell. There is one value returned for each of the input cell.
 
-it includes the skeleton files 
+#### References
 
-* `main.R`
-* `workspace.R`
-* `operator.json`
-* `README_template.md`
-* `doc` directory
 
-please remember to change the `README_template.md` to  `README.template.md`
+##### See Also
 
-inside the `doc` there is a `dev_commands.md` file which contains useful development command lines.
+
