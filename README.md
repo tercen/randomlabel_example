@@ -1,4 +1,4 @@
-# Median operator
+# Random label operator
 
 ##### Description
 
@@ -16,7 +16,6 @@ Output relations|.
 
 ##### Details
 
-The operator takes all the values of a cell and returns the value which is the median.The computation is done per cell. There is one value returned for each of the input cell.
 
 #### References
 
