@@ -10,17 +10,8 @@
     "name": "seed",
     "defaultValue": "NULL",
     "description": "Seed for random number generation. If NULL, a random seed is taken."
-    },
-    {
-    "kind": "EnumeratedProperty",
-    "name": "method",
-    "defaultValue": "uniform",
-    "values": [
-      "uniform",
-      "downsampling"
-    ],
-    "description": "Method used to assign labels (uniform value or downsampling)."
-  }]
+    }
+    ]
 }
 
 

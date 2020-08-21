@@ -2,24 +2,26 @@
 
 ##### Description
 
-The `Random label` operator returns a random label per column. It allows one to subsample or downsample the data.
+The `Random label` operator returns a random label per column.
 
 ##### Usage
 
 Input projection|.
 ---|---
-`col`        | numeric, input data, per cell 
+`column`        | input data, per cell 
 
 Output relations|.
 ---|---
-`label`        | numeric, median of the input data
+`label`        | numeric, random number between 0 and 100
+
+Parameters|.
+---|---
+`seed`        |  random seed
 
 ##### Details
 
-
-#### References
-
+The `Random label` operator can be used to randomly sample data. A number is sampled from a uniform distribution U(0, 100) and assigned to each column.
 
 ##### See Also
 
-
+[downsample_operator](https://github.com/tercen/downsample_operator/)
