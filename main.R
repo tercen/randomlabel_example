@@ -1,9 +1,10 @@
 library(tercen)
 library(dplyr)
 
-ctx = tercenCtx()
+ctx <- tercenCtx()
 
-if(!ctx$op.value('seed') == "NULL") set.seed(as.integer(ctx$op.value('seed')))
+seed <- NULL
+if(!ctx$op.value('seed') < 0) seed <- as.integer(ctx$op.value('seed'))
 
 data.frame(
   .ci = seq(from=0, to=ctx$cschema$nRows - 1),
