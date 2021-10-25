@@ -1,7 +1,7 @@
 {
   "name": "Random Label",
   "description": "Calculates random labels which can be assigned to sample data",
-  "tags": ["sampling"],
+  "tags": ["data wrangling","sampling"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/randomlabel_operator"],
   "properties": [
